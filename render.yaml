@@ -13,7 +13,7 @@ services:
     buildCommand: npm install 
     startCommand: npm run start
     envVars:
-      - key: BDDURL
+      - key: BD
         fromDatabase: 
           name: cloudEsgi
           property: connectionString
