@@ -1,21 +1,19 @@
-
 databases:
-  - name: cloudServerless
+  - name: cloudEsgi
+    databaseName: cloudesgi 
+    user: cloudsgi 
     plan: free
-    databaseName: cloudbdd 
-    user: root 
 
 services:
-    - type: web
+  - type: web
     plan: free
-    name: serverlessCloud 
-    runtime: node 
-    buildCommand: npm install
-    startCommand: npm start 
-    repo: https://github.com/mazounirayan/serverless
+    runtime: node
+    name: cloudEsgi
+    repo:  https://github.com/mazounirayan/serverless
+    buildCommand: npm install 
+    startCommand: npm run start
     envVars:
-      - key: DB
-       fromService:
-        name: cloudServerless
-        property : connectionstring
-        
+      - key: BDDURL
+        fromDatabase: 
+          name: cloudEsgi
+          property: connectionString
