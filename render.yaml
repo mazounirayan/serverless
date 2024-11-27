@@ -9,7 +9,7 @@ services:
     plan: free
     runtime: node
     name: cloudEsgi
-    repo:  https://github.com/mazounirayan/serverless
+    repo:  "https://github.com/mazounirayan/serverless"
     buildCommand: npm install 
     startCommand: npm run start
     envVars:
