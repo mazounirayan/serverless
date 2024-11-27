@@ -1,0 +1,21 @@
+
+databases:
+  - name: cloudServerless
+    plan: free
+    databaseName: cloudbdd 
+    user: root 
+
+services:
+    - type: web
+    plan: free
+    name: serverlessCloud 
+    runtime: node 
+    buildCommand: npm install
+    startCommand: npm start 
+    repo: https://github.com/mazounirayan/serverless
+    envVars:
+      - key: DB
+       fromService:
+        name: cloudServerless
+        property : connectionstring
+        
